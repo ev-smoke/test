@@ -29,5 +29,8 @@ macos:
 windows:
 	$(MAKE) TARGETOS=windows TARGETARCH=amd64 image
 
+push:
+	docker push ${REGISTRY}/${IMAGE_NAME}:${TARGETOS}-${TARGETARCH}
+
 clean:
 	docker rmi -f ${REGISTRY}/${IMAGE_NAME}:${TARGETOS}-${TARGETARCH} || true
